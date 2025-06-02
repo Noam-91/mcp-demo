@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: mcp-client-demo
+  ai:
+    anthropic:
+      api-key: ${ANTHROPIC_API_KEY}
+      chat.options:
+        model: claude-3-haiku-20240307
+        max-tokens: 4096
+    mcp:
+      client:
+        enabled: true
+        name: mcp-client-demo
+        version: 1.0.0
+        initialized: true
+        request-timeout: 20s
+        type: sync
+        root-change-notification: true
+        toolcallback.enabled: true
+        sse:
+          connections:
+            server1:
+              url: http://localhost:8080
+              sse-endpoint: /api/v1/sse
+server:
+  port: 9090
+#logging:
+#  level:
+#    root: DEBUG
